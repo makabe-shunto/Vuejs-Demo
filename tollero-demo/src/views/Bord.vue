@@ -3,13 +3,15 @@
         <h2 class="bord__ttl">カード一覧</h2>
         <div class="bord__wrap">
             <div class="bord__cards">
-                <List 
-                    v-for="(list, index) in lists" 
-                    :list="list"
-                    :listIndex="index" 
-                    :key="list.id" 
-                />
-                <ListCreate />
+                <Draggable class="bord__cards" animation="150" @end="updateList" :list="lists">
+                    <List 
+                        v-for="(list, index) in lists" 
+                        :list="list"
+                        :listIndex="index" 
+                        :key="list.id" 
+                    />
+                    <ListCreate />
+                </Draggable>
             </div>
         </div>
     </div>
@@ -18,10 +20,17 @@
 <script>
     import List from "@/components/List";
     import ListCreate from "@/components/ListCreate";
+    import Draggable from "vuedraggable";
     export default {
         components: {
             List,
             ListCreate,
+            Draggable,
+        },
+        methods: {
+            updateList() {
+                this.$store.dispatch("updateList", { lists: this.lists });
+            },
         },
         computed: {
             lists() {
