@@ -1,9 +1,35 @@
 <template>
     <div class="bord">
         <h2 class="bord__ttl">カード一覧</h2>
-        
+        <div class="bord__wrap">
+            <div class="bord__cards">
+                <List 
+                    v-for="(list, index) in lists" 
+                    :list="list"
+                    :listIndex="index" 
+                    :key="list.id" 
+                />
+                <ListCreate />
+            </div>
+        </div>
     </div>
 </template>
+
+<script>
+    import List from "@/components/List";
+    import ListCreate from "@/components/ListCreate";
+    export default {
+        components: {
+            List,
+            ListCreate,
+        },
+        computed: {
+            lists() {
+                return this.$store.state.lists;
+            },
+        },
+    };
+</script>
 
 <style lang="scss" scoped>
   .bord {
