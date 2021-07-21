@@ -17,6 +17,5 @@
       border-color: #aab4c4;
       font-weight: bold;
       padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
     }
 </style>
