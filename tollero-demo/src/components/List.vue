@@ -3,14 +3,21 @@
         <h3 class="list__header">{{ list.title }}</h3>
         <button class="list__delete" @click="removeList">×</button>
         <div class="list__content">
-            <Card 
-                 v-for="(card, index) in list.cards"
-                :title="card" 
-                :key="card.id" 
-                :listIndex="listIndex"
-                :cardIndex="index"
-            />
-            <CardCreate :listIndex="listIndex" />
+            <Draggable 
+                :list="list.cards" 
+                animation="150" 
+                group="cards"
+                @end="$emit('update')"
+            >
+                <Card 
+                    v-for="(card, index) in list.cards"
+                    :title="card" 
+                    :key="card.id" 
+                    :listIndex="listIndex"
+                    :cardIndex="index"
+                />
+                <CardCreate :listIndex="listIndex" />
+            </Draggable>
         </div>
     </div>
 </template>
@@ -18,11 +25,13 @@
 <script>
 import Card from "@/components/Card";
 import CardCreate from "@/components/CardCreate";
+import Draggable from "vuedraggable";
 
 export default {
     components: {
         Card,
         CardCreate,
+        Draggable,
     },
     props: {
         list: {

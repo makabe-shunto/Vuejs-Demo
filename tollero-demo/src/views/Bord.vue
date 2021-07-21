@@ -9,6 +9,7 @@
                         :list="list"
                         :listIndex="index" 
                         :key="list.id" 
+                        @update="updateList"
                     />
                     <ListCreate />
                 </Draggable>
@@ -21,6 +22,7 @@
     import List from "@/components/List";
     import ListCreate from "@/components/ListCreate";
     import Draggable from "vuedraggable";
+
     export default {
         components: {
             List,
