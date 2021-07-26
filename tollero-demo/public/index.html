@@ -12,6 +12,24 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDm6_wCihbaN7SMSQamMYHAMsWNlZf595s",
+        authDomain: "tollero-demo.firebaseapp.com",
+        projectId: "tollero-demo",
+        storageBucket: "tollero-demo.appspot.com",
+        messagingSenderId: "135843688537",
+        appId: "1:135843688537:web:7f49d6a835f4c8725c8148"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
   </body>
 </html>

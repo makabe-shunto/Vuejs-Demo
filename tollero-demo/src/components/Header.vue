@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <h1 class="header__ttl">パチモンTollero</h1>
+        <h1 class="header__ttl">tollero-demo</h1>
         <div class="header__menu">
             <router-link to="/" class="header__link">HOME</router-link>
             <router-link to="about" class="header__link">ABOUT</router-link>
