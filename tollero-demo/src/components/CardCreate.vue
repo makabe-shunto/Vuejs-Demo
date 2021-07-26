@@ -39,6 +39,9 @@ export default {
     },
     methods: {
         addCard() {
+            if (!this.title) {
+                return;
+            }
             this.$store.dispatch("addCard", {
                 listIndex: this.listIndex,
                 title: this.title,

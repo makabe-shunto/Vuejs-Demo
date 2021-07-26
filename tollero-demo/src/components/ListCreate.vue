@@ -33,6 +33,9 @@
         },
         methods: {
             addList() {
+                if (!this.title) {
+                    return;
+                }
                 this.$store.dispatch("addList", this.title);
                 this.title = "";
             },
